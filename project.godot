@@ -33,7 +33,10 @@ pointing/emulate_touch_from_mouse=true
 
 [physics]
 
-2d/physics_engine="Rapier2D"
+2d/physics_engine="GodotPhysics2D"
+2d/solver/contact_max_allowed_penetration=0.05
+rapier/solver/normalized_max_corrective_velocity=0.98253
+rapier/solver/normalized_prediction_distance=0.002
 
 [rendering]
 
