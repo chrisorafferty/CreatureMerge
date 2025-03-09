@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://ddu5vmmbb08yr"]
+
+[ext_resource type="Script" uid="uid://b6e2xomvc6hea" path="res://scripts/game_manager.gd" id="1_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://n1hayd4c0487" path="res://sprites/square.png" id="1_ig7tw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ig7tw"]
+size = Vector2(1000, 365)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm2m"]
+size = Vector2(320, 1000)
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_0xm2m")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(0, 500)
+
+[node name="Visuals" type="Sprite2D" parent="Ground"]
+modulate = Color(0.543094, 0.827249, 0.497532, 1)
+scale = Vector2(5.7, 5.7)
+texture = ExtResource("1_ig7tw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+shape = SubResource("RectangleShape2D_ig7tw")
+
+[node name="LeftWall" type="StaticBody2D" parent="."]
+position = Vector2(-340, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall"]
+shape = SubResource("RectangleShape2D_0xm2m")
+one_way_collision_margin = 5.0
+
+[node name="RightWall" type="StaticBody2D" parent="."]
+position = Vector2(340, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall"]
+shape = SubResource("RectangleShape2D_0xm2m")
+one_way_collision_margin = 5.0
